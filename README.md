@@ -49,7 +49,7 @@ By using the operator proposed in this document, the function definition can be 
 
 ```js
 function(cond) {
-  return obj = {
+  return {
     x: 14,
     y: 39,
     cond ? prop: true
