@@ -66,7 +66,8 @@ let cond = true;
 let obj = {
   x: 14,
   y: 39,
-  ...(cond ? {prop1: value1, prop2: value2} : null)};
+  ...(cond ? {prop1: value1, prop2: value2} : null)
+};
 ```
 
 Additionally, this behaviour can sometimes be emulated using just the ternary operator with the false expression set to `undefined`. This workout cannot be used in certain situations however, such as when performing operation an update on a database, as the property is still present in the object. Certain applications may iterate over the keys within an object, using `Object.keys` or a similar function, and take undesirable action based upon this.
