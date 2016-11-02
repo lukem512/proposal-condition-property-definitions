@@ -63,7 +63,7 @@ This behaviour can sometimes be emulated using a ternary operator with the false
 
 ```js
 function(cond) {
-  return obj = {
+  return {
     x: 14,
     y: 39,
     prop: cond ? true : undefined
