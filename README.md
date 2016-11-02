@@ -59,7 +59,25 @@ function(cond) {
 
 ## Existing Solutions
 
-This behaviour can sometimes be emulated using a ternary operator with the false expression set to `undefined`. This workout cannot be used in certain situations however, such as when performing operation an update on a database, as the property is still present in the object. Certain applications may iterate over the keys within an object, using `Object.keys` or a similar function, and take undesirable action based upon this.
+This behaviour can be obtained using the spread operator in tandem with the ternary operator within the object definition. This is effective but requires the addition of at least 10 characters for the spread, the  parentheses and the `null` expression.
+
+```js
+let cond = true;
+let obj = {
+  prop1: 'hello',
+  ...(cond ? {prop2: 'world'} : null)};
+// { prop1: 'hello', prop2: 'world' }
+```
+
+```js
+cond = false;
+let obj = {
+  prop1: 'hello',
+  ...(cond ? {prop2: 'world'} : null)};
+// { prop1: 'hello' }
+```
+
+Additionally, this behaviour can sometimes be emulated using just the ternary operator with the false expression set to `undefined`. This workout cannot be used in certain situations however, such as when performing operation an update on a database, as the property is still present in the object. Certain applications may iterate over the keys within an object, using `Object.keys` or a similar function, and take undesirable action based upon this.
 
 ```js
 function(cond) {
